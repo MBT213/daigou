@@ -1,0 +1,140 @@
+body{
+	font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+	font-size:16px;
+}
+a{
+	color: #777;
+	text-decoration:none;
+}
+a:focus,
+a:hover {
+	color: #b00;
+}
+header{
+
+    background:#31a8e6;
+	height:60px;
+}
+header .account{
+	padding-right:200px;
+	text-align:right;
+	color:white;
+	line-height:70px;
+	
+}
+header .account>a{
+	float:right;
+	padding-right:20px;
+	line-height: 40px;
+	color:white;
+	line-height:70px;
+	
+}
+header .account>a:hover{
+	
+	color:#eee;
+
+	
+}
+header .logo{
+    float:left;
+	line-height:60px;
+	font-size:28px;
+	color:white;
+}
+
+main{
+	margin-top:10px;
+}
+
+main .search-go{
+	float:right;
+	margin-right:200px;
+	padding:4px 15px;
+	font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+	border:1px solid white;
+	border-radius:3px;
+	font-size:14px;
+	color:white;
+	background:#31a8e6;
+	
+}
+main .search-box{
+	height:30px;
+}
+main .search-go:hover{
+	
+	background:#3190e6;
+	
+}
+main .search{
+	
+	float:right;
+	margin-right:20px;
+	border:2px solid #31a8e6;
+	border-radius:5px;
+	font-size:14px;
+	height:24px;
+	width:200px;
+	
+	
+}
+main ul{
+	text-align:center;
+	margin:0 auto;
+	padding-left: 0;
+	list-style: none;
+	
+}
+main ul li{
+	display:inline-block;
+}
+main ul li img{
+	margin:30px 20px 0px 20px;
+	padding:5px;
+	width:300px;
+	height:250px;
+	border:4px solid silver;
+	border-radius:8px;
+}
+main ul li img:hover{
+	border:4px solid gray;
+}
+main ul li p{
+	text-align:center;
+}
+main ul li p span.price{
+	margin:0 20px;
+}
+main ul li p a.add{
+	padding:3px 12px;
+	border:2px solid #31a8e6;
+	border-radius:5px;
+	color:#31a8e6;
+	
+}
+main ul li p a.add:hover{
+	border:2px solid #3190e6;
+	color:#3190e6;
+}
+main h3{
+	text-align:center;
+}
+main table{
+	
+	margin:0 auto;
+	border:1px solid #31a8e6;
+	width:500px;
+	
+}
+main table th{
+	
+	height:50px;
+	
+}
+main table td{
+	
+	text-align:center;
+	height:40px;
+}
+
