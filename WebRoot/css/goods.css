@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+html{
+	background-image:url(../images/p2.jpg) ;
+}
+
+header{
+	width:90%;
+	height:155px;
+	margin:10px auto;
+
+}
+
+.banner{
+	display:inline-block;
+	font-family:"Bodoni MT Black";
+	font-weight:bold;
+	font-style:italic;
+	font-size:40px;
+	color:#D9006C;
+	text-align:center;
+}
+header nav ul{
+	margin-right:100px;
+	text-align:right;
+}
+header nav ul>li{
+	display:inline;
+}
+header nav ul>li a{
+	padding:10px 10px;
+	letter-spacing:5px;
+	font-size:20px;
+	color:#D9006C;
+	font-weight:bold;
+}
+header nav ul>li.active a{
+	font-weight:bold;
+	color:#0CF5DC;
+	border-bottom:3px solid #fff;
+	}
+	
+body h1{
+	text-align:center;
+	color:#A00000;
+	font-size:22px;
+	}
+	
+body h3{
+	text-indent:50px;
+	color:#D9006C;
+	}
+	
+body p{
+	font-style:italic;
+	font-size:28px;
+    text-align:center;
+    color:#D94000; 
+    font-weight:bold;
+	}
+	
+.button {
+	background-color: #f44336;
+	font-size: 20px;
+	margin-left:35%;
+	width:10%;
+	} 

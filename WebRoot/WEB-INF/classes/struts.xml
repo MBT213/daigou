@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+     <constant name="struts.i18n.encoding" value="utf-8"/>
+     <constant name="struts.devMode" value="false" />
+     <!--Struts2中Action对象的创建交给spring完成-->
+     <constant name="struts.objectFactory" value="spring" /> 
+       
+      <package name="default" extends="struts-default" >
+		<interceptors>
+			<interceptor name="LoginInterceptors" class="com.daigou.util.LoginInterceptors">
+				<param name="excludeName">user_login,user_reg,goods_showGoods</param>
+				<param name="sessionName">user</param>
+			</interceptor>
+			<interceptor-stack name="myInterceptors">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="LoginInterceptors"/>
+			</interceptor-stack>	 			
+		</interceptors>
+		<default-interceptor-ref name="myInterceptors"></default-interceptor-ref>
+			<global-results>
+				<result name="login" type="redirect">/login.jsp</result>
+				<result name="success">/index.jsp</result>
+			</global-results>	 		
+		</package>
+      
+      <package name="goods" namespace="/goods" extends="default" >
+	        <action name="goods_*" class="goodsAction" method="{1}">
+	            <result name="message">/message.jsp</result>
+	        	<result name="show_view">/main.jsp</result>
+	        	<result name="detail_view">/detail.jsp</result>
+	        	<result name="edit_view">/edit.jsp</result>
+	        	<result name="delete_message">/delete_message.jsp</result>
+	        	<result name="edit_message">/edit_message.jsp</result>
+	        </action>  
+	 </package> 
+	 
+	  <package name="user" namespace="/user" extends="default" >
+	        <action name="user_*" class="userAction" method="{1}">
+	            <result name="show_view" type="chain">
+	              <param name="actionName">goods_showGoods</param> 
+                  <param name="namespace">/goods</param>
+                  <param name="param1">${user.name}</param>
+                </result>
+                <result name="input">/login.jsp</result>
+	        </action>  
+	 </package> 
+	 	 	 
+	 <package name="order" namespace="/order" extends="default" >
+	        <action name="order_*" class="orderAction" method="{1}">
+	            <result name="order_message">/order_message.jsp</result>
+	            <result name="show_view">/order_main.jsp</result>
+	            <result name="detail_view">/order_detail.jsp</result>
+	        </action>  
+	 </package> 	 	   	 
+</struts>

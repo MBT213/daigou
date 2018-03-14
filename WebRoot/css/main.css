@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+body{
+	font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+	font-size:16px;
+}
+a{
+	text-decoration:none;
+}
+a:focus,
+a:hover {
+	color: #f2eada;
+}
+
+main{
+	margin-top:10px;
+}
+
+main .search-go{
+	
+	float:right;
+	margin-right:0px;
+	padding:4px 15px;
+	font-family:"Microsoft Yahei",微软雅黑,"Helvetica Neue",Arial,sans-serif;
+	border:1px solid white;
+	border-radius:10px;
+	font-size:12px;
+	color:white;
+	background:#EEE8AA;
+	
+}
+ 
+main .search-go:hover{
+
+	background:#3190e6;
+	
+}
+main .search{
+	
+	float:left;
+	margin-right:200px;
+	border:2px solid #FDF5E6;
+	border-radius:8px;
+	font-size:14px;
+	height:35px;}
