@@ -64,7 +64,9 @@ public class UserAction extends ActionSupport{
 import java.util.ArrayList;
 import java.util.Map;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -82,9 +84,7 @@ public class UserAction extends ActionSupport implements SessionAware{
 		return session;
 	}
 
-	public void setSession(Map<String,Object> 
-
-session) {
+	public void setSession(Map<String,Object> session) {
 		this.session = session;
 	}
 	public String getPrePage() {
@@ -111,7 +111,19 @@ session) {
 	
 	public String reg() throws Exception{
 		userDao.AddUser(user);
-		session.put("user",user);
+		User existuser = userDao.GetUserById(user.getUserid());  
+		  
+        // 获得response对象，页面输出：  
+        HttpServletResponse response = ServletActionContext.getResponse();  
+        response.setContentType("text/html;charset=UTF-8");  
+        if (existuser != null) {  
+            // 查询到该用户，用户名已经存在  
+            response.getWriter().println("<font color='red'>用户名已经存在</font>");  
+        } else {  
+            // 查询到该用户，用户名可以使用 
+        	session.put("user",user);
+            response.getWriter().println("<font color='green'>用户名可以使用</font>");  
+        }
 		return "show_view";
 		
 		}
