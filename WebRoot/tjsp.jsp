@@ -21,48 +21,63 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="js/bootstrap.js"></script>
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/logreg.css">
- <link rel="shortcut icon" href="<%=basePath%>images/1128.png">
 	
   </head>  
   
   <body>
    	
-  
-   	
-  		<div class="container">
-        	<h1>添加商品页面</h1>
-        </div>  	
-  	
-   <div class="form-box">
-    	<div class="form-top">
-        	<div class="form-top-left">
-            	<h3>请输入商品名称和价格：</h3>
-            
-            </div>
-            <div class="form-top-right">
-                <i class="fa fa-lock"></i>
-            </div>
-        </div>
-        
-        <div class="form-bottom">
-		  <form action="goods/goods_addGoods" method="post">
-		    
-		      <div class="form-group">
-		      <input type="text" name="goods.goodsname" label="名称" class="btn" placeholder="商品名称"  >
-		      </div>
-		      
-		      <div class="form-group">
-		      <input type="text" name="goods.price" class="btn" label="价格" placeholder="商品价格"  >
-		      </div>
-		      
-		      <button type="submit" class="btn">提交</button>
-		    </form>
-	    </div>
-   	</div>
+   	  
+   	<main class="container-fluid">
+	    <div class="row">
+		   <div class="col-md-10">
+		      <s:form action="goods/goods_addGoods" cssClass="form-horizontal" enctype="multipart/form-data">
+		       <div class="panel panel-success">
+			       <div class="panel-heading">
+		               <h4 class="panel-title"> <i class="fa fa-cutlery"></i> 添 加 商 品 </h4>
+		           </div>
+		           <div class="panel-body">
+				       <div class="form-group">
+			                <label class="control-label col-md-3">商品名称</label>
+			                <div class="col-md-4">
+                              <input type="text" name="goods.goodsname" class="form-control input-sm" required>
+                           </div>
+			           </div>  
+			           <div class="form-group">
+			                <label class="control-label col-md-3">商品单价</label>
+			                <div class="col-md-2">
+                              <input type="text" name="goods.unitprice" class="form-control input-sm" placeholder="&yen;" required>
+                            </div>
+			           </div>
+			           <div class="form-group">
+			                <label class="control-label col-md-3">商品图片</label>
+			                <div class="col-md-4">
+                              <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                   <img src="<%=basePath%>upload/demoUpload.jpg" alt="" />
+                                </div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" 
+                                   style="max-width: 200px; max-height:150px; line-height: 20px;">
+                                </div>
+                                <div>
+                                   <span class="btn btn-file btn-primary"><span class="fileupload-new">浏览</span>
+                                   <span class="fileupload-exists">浏览</span><input type="file" name="goodsPhoto"/></span>
+                                   <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">取消</a>
+                                </div>
+                              </div>
+                            </div>
+			           </div>
+			           <div class="form-group col-md-3">
+				          <button type="submit" class="btn btn-success pull-right">提  交 </button>
+				       </div>
+				   </div>
+				</div>
+		    </s:form>
+		  </div>
+	   </div>
+	</main>
+ 
          
   </body>
 </html>
     
-  </body>
-</html>
+

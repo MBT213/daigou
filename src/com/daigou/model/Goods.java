@@ -24,6 +24,7 @@ public class Goods implements java.io.Serializable {
 	private Integer goodsid;
 	private String goodsname;
 	private Double price;
+	private String filepath;
 	private Set<Order> orders = new HashSet<Order>(0);
 	private Set<Order> orders_1 = new HashSet<Order>(0);
 	private Set<Order> orders_2 = new HashSet<Order>(0);
@@ -34,11 +35,17 @@ public class Goods implements java.io.Serializable {
 	public Goods() {
 	}
 
+	/** minimal constructor */
+	public Goods(String filepath) {
+		this.filepath = filepath;
+	}
+
 	/** full constructor */
-	public Goods(String goodsname, Double price, Set<Order> orders,
-			Set<Order> orders_1, Set<Order> orders_2) {
+	public Goods(String goodsname, Double price, String filepath,
+			Set<Order> orders, Set<Order> orders_1, Set<Order> orders_2) {
 		this.goodsname = goodsname;
 		this.price = price;
+		this.filepath = filepath;
 		this.orders = orders;
 		this.orders_1 = orders_1;
 		this.orders_2 = orders_2;
@@ -75,7 +82,16 @@ public class Goods implements java.io.Serializable {
 		this.price = price;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "goods")
+	@Column(name = "filepath", nullable = false, length = 100)
+	public String getFilepath() {
+		return this.filepath;
+	}
+
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
 	public Set<Order> getOrders() {
 		return this.orders;
 	}
@@ -84,7 +100,7 @@ public class Goods implements java.io.Serializable {
 		this.orders = orders;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "goods")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
 	public Set<Order> getOrders_1() {
 		return this.orders_1;
 	}
@@ -93,7 +109,7 @@ public class Goods implements java.io.Serializable {
 		this.orders_1 = orders_1;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "goods")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
 	public Set<Order> getOrders_2() {
 		return this.orders_2;
 	}

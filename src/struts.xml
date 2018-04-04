@@ -9,7 +9,7 @@
       <package name="default" extends="struts-default" >
 		<interceptors>
 			<interceptor name="LoginInterceptors" class="com.daigou.util.LoginInterceptors">
-				<param name="excludeName">user_login,user_reg,goods_showGoods</param>
+				<param name="excludeName">user_login,user_reg,goods_showGoods,goods_addGoods</param>
 				<param name="sessionName">user</param>
 			</interceptor>
 			<interceptor-stack name="myInterceptors">
@@ -27,7 +27,7 @@
       <package name="goods" namespace="/goods" extends="default" >
 	        <action name="goods_*" class="goodsAction" method="{1}">
 	            <result name="message">/message.jsp</result>
-	        	<result name="show_view">/main.jsp</result>
+	        	<result name="show_view">/main-1.jsp</result>
 	        	<result name="detail_view">/detail.jsp</result>
 	        	<result name="edit_view">/edit.jsp</result>
 	        	<result name="delete_message">/delete_message.jsp</result>
