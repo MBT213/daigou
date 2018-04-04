@@ -17,15 +17,67 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/style.css">
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap.min.css">
 	
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/bootstrap-fileupload.js"></script>
   </head>  
   
   <body>
-   	
+   	</head>
+<body>
+  <div class="top-header">
+		<div class="container">
+			<div class="top-header-main">
+				<div class="col-md-6 top-header-left">
+				    <div class="box">
+		                   <c:choose>
+		                     <c:when test="${user.name ==null}">
+		                    <p> <a href="reg.jsp">注册</a>
+		                      <a href="login.jsp">登录</a> </p>
+		                       </c:when>
+		                      <c:otherwise>
+		               <div class="yonghuming"><c:out value="${user.name}"></c:out>, 欢迎您!</div>
+		                    </c:otherwise>
+		                </c:choose>
+                   </div>
+               </div>
+			   <div class="col-md-6 top-header-left">
+					<div class="cart box_1">
+						<a href="main.jsp">
+					 		 <div class="total">
+								<span class="simpleCart_total"></span></div>
+								<img src="images/cart-1.png" alt=""></a>
+						<p><a href="order_main.jsp" class="simpleCart_empty">Empty Cart</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	
+<div class="logo">
+		<a href="main.jsp"><h1>BUY All YOU WANT</h1></a>
+	</div>
+<ul class="nav nav-pills">
+<li class="active"><a href="main.jsp">首页</a></li>
+<li><a href="main-1.jsp">大牌彩妆</a></li>
+<li><a href="main-1.jsp">高定限量</a></li>
+<li><a href="main-1.jsp">欧美流行</a></li>
+<li><a href="main-2.jsp">钟表王国</a></li>
+<li><a href="main-1.jsp">关于我们</a></li>
+<form class="navbar-form navbar-right" action="goods/goods_queryGoods" method="post">
+          <input type="text" class="form-control" placeholder="Search" name="keyWords">
+        <button type="submit" class="btn btn-default">Submit</button>
+     </form>
+  </ul>
    	  
    	<main class="container-fluid">
 	    <div class="row">
@@ -45,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			           <div class="form-group">
 			                <label class="control-label col-md-3">商品单价</label>
 			                <div class="col-md-2">
-                              <input type="text" name="goods.unitprice" class="form-control input-sm" placeholder="&yen;" required>
+                              <input type="text" name="goods.price" class="form-control input-sm" placeholder="&yen;" required>
                             </div>
 			           </div>
 			           <div class="form-group">
